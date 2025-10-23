@@ -1,0 +1,36 @@
+trigger:
+- develop
+- release
+
+parameters:
+- name: deliveryTrain
+  type: object
+  default:
+    continuousIntegration:
+      build:
+      - with: gradle
+        configure:
+          gradleExtraOptions: build -Dfile.encoding=ISO-8859-1
+          javaVersion: '21'
+      artifact:
+        with: docker
+        configure: 
+          acrServiceConnectionNameDllo: '[Docker_Registry_Service_Connection]' # Nombre de la conexión al servicio de docker de desarrollo
+          acrServiceConnectionNameLabo: '[Docker_Registry_Service_Connection]' # Nombre de la conexión al servicio de docker de laboratorio
+          acrServiceConnectionNamePdn: '[Docker_Registry_Service_Connection]'  # Nombre de la conexión al servicio de docker de producción
+          appName: 'appName' # Nombre de la aplicación
+          dockerfilePath: 'applications/app-service/Dockerfile'
+          dockerfileBuildContext: 'applications/app-service'
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      ref: master
+      name : Gerencia_Tecnologia/ti-templates_pipelines-conf
+      endpoint: AzRepos-SuraColombia
+
+extends:
+  template: templates/gradle-aks.yaml@templates
+  parameters:
+    deliveryTrain: ${{ parameters.deliveryTrain }}

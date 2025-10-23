@@ -1,0 +1,7 @@
+dependencies {
+    runtimeOnly('org.springframework.boot:spring-boot-devtools:3.1.0')
+    implementation "org.reactivecommons:async-commons-rabbit-starter:${asyncCommonsVersion}"
+    implementation "io.projectreactor.rabbitmq:reactor-rabbitmq:${reactorRabbitmqVersion}"
+    implementation "io.micrometer:micrometer-core:${micrometerVersion}"
+}
+

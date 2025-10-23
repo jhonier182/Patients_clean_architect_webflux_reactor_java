@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(':domain-model')
+    implementation project(':domain-usecase')
+	implementation "org.reactivecommons:async-commons-api:${asyncCommonsVersion}"
+    implementation("org.reactivecommons:async-commons-rabbit-starter:${asyncCommonsVersion}") 
+    implementation("org.springframework:spring-context") 
+    implementation "io.projectreactor.rabbitmq:reactor-rabbitmq:${reactorRabbitmqVersion}"
+    implementation "io.micrometer:micrometer-core:${micrometerVersion}"
+}
+
