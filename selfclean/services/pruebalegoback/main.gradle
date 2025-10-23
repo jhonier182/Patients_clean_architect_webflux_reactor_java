@@ -10,13 +10,14 @@ subprojects {
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
-		maven {
-            url "https://artifactory.suramericana.com.co/artifactory/sura-share/"
-            credentials {
-            	username "artifactory"
-            	password "artifactory"
-            }
-        }
+        // Repositorio de Artifactory de Suramericana - Comentado por problemas de conectividad
+        // maven {
+        //     url "https://artifactory.suramericana.com.co/artifactory/sura-share/"
+        //     credentials {
+        //     	username "artifactory"
+        //     	password "artifactory"
+        //     }
+        // }
     }
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'

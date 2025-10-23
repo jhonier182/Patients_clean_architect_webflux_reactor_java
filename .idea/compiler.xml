@@ -30,6 +30,11 @@
         <module name="pruebalegoback.entry-points-reactive-web.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher" target="21" />
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher.main" target="21" />
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher.test" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

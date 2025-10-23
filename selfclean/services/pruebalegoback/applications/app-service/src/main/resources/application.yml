@@ -16,7 +16,7 @@ spring:
     virtual-host: /
 
 app:
-  context: VAR_CONTEXT
+  context: /api
 
 weather:
   api:
