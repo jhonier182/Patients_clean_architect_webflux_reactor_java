@@ -1,6 +1,6 @@
-package sura.pruebalegoback.controller
+package sura.pruebalegoback.controller;
 
--points.reactive-web.controller;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,12 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
--points.reactive-web.dto.PatientRequest;
--points.reactive-web.dto.PatientResponse;
-import sura.pruebalegoback.infraestructure.entry-points.reactive-web.dto.PatientUpdateRequest;
+import sura.pruebalegoback.dto.PatientRequest;
+import sura.pruebalegoback.dto.PatientResponse;
+import sura.pruebalegoback.dto.PatientUpdateRequest;
 import sura.pruebalegoback.usecase.patient.*;
 
-import javax.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -88,7 +88,7 @@ public class PatientController {
     public Flux<PatientResponse> getPatientsByCity(@PathVariable String city) {
         log.info("Buscando pacientes de ciudad: {}", city);
         
-        return queryPatientsUseCase.getPatientsByCity(city)
+        return queryPatientsUseCase.getPatientByCity(city)
                 .map(PatientResponse::fromDomain)
                 .doOnNext(patient -> log.debug("Paciente de ciudad encontrado: {}", patient.getId()));
     }
@@ -151,7 +151,7 @@ public class PatientController {
         log.info("Eliminando paciente con ID: {}", id);
         
         return deletePatientUseCase.deletePatient(id)
-                .then(Mono.just(ResponseEntity.noContent().build()))
+                .then(Mono.<ResponseEntity<Void>>just(ResponseEntity.noContent().build()))
                 .doOnSuccess(response -> log.info("Paciente eliminado exitosamente: {}", id))
                 .doOnError(error -> log.error("Error al eliminar paciente {}: {}", id, error.getMessage(), error));
     }

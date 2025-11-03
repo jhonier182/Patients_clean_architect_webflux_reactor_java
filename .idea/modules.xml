@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/r2dbc-postgresql/pruebalegoback.driven-adapters-r2dbc-postgresql.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/r2dbc-postgresql/pruebalegoback.driven-adapters-r2dbc-postgresql.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/rest-consumer/pruebalegoback.driven-adapters-rest-consumer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/rest-consumer/pruebalegoback.driven-adapters-rest-consumer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/reactive-web/pruebalegoback.entry-points-reactive-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/reactive-web/pruebalegoback.entry-points-reactive-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/subs-events/pruebalegoback.entry-points-subs-events.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/subs-events/pruebalegoback.entry-points-subs-events.main.iml" />
     </modules>
   </component>
 </project>
