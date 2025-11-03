@@ -54,8 +54,8 @@ public class WeatherConfig {
                 .build();
     }
 
-    @Bean
-    public ObjectMapper objectMapper() {
+    @Bean(name = "jacksonObjectMapper")
+    public ObjectMapper jacksonObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         return mapper;

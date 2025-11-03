@@ -6,11 +6,13 @@ services:
       POSTGRES_DB: clinica_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./infraestructure/driven-adapters/r2dbc-postgresql/create_table.sql:/docker-entrypoint-initdb.d/01-init.sql
+    command: postgres -c ssl=off -c listen_addresses=*
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s

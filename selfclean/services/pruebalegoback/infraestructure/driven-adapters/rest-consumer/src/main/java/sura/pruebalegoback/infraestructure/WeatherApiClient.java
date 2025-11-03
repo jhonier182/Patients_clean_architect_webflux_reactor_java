@@ -2,9 +2,9 @@ package sura.pruebalegoback.infraestructure;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -15,7 +15,6 @@ import java.time.Duration;
 import java.util.concurrent.TimeoutException;
 
 @Component
-@RequiredArgsConstructor
 public class WeatherApiClient implements WeatherGateway {
     
     private static final Logger log = LoggerFactory.getLogger(WeatherApiClient.class);
@@ -25,6 +24,11 @@ public class WeatherApiClient implements WeatherGateway {
     
     @Value("${weather.api.base-url}")
     private String baseUrl;
+    
+    public WeatherApiClient(WebClient webClient, @Qualifier("jacksonObjectMapper") ObjectMapper objectMapper) {
+        this.webClient = webClient;
+        this.objectMapper = objectMapper;
+    }
 
     @Override
     public Mono<WeatherInfo> getWeatherByLocation(String city, String state) {

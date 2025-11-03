@@ -64,5 +64,8 @@ subprojects {
             mavenBom "org.springframework:spring-framework-bom:${springFrameworkVersion}"
             mavenBom "io.projectreactor:reactor-bom:${reactorVersion}"
         }
+        dependencies {
+            dependency "io.projectreactor.rabbitmq:reactor-rabbitmq:${reactorRabbitmqVersion}"
+        }
     }
 }
