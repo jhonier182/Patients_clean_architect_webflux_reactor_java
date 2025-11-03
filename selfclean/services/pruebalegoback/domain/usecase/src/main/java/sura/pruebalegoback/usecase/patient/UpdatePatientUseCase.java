@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import sura.pruebalegoback.domain.patient.Patient;
+import sura.pruebalegoback.domain.patient.PatientFactory;
 import sura.pruebalegoback.domain.patient.ex.PatientBusinessException;
 import sura.pruebalegoback.domain.patient.gateway.PatientRepository;
 
@@ -17,7 +18,13 @@ public class UpdatePatientUseCase {
     public Mono<Patient>updatePatient(String id, PatientUpdateData updateData ){
         log.info("Actualizando paciente:");
 
-        return patientRepository.findById(id)
+        // Validar teléfono primero si se está actualizando
+        Mono<Void> phoneValidation = updateData.phone() != null 
+            ? PatientFactory.validatePhone(updateData.phone()).then()
+            : Mono.empty();
+        
+        return phoneValidation
+                .then(patientRepository.findById(id))
                 .switchIfEmpty(Mono.error(PatientBusinessException.Type.PATIENT_NOT_FOUND.build()))
                 .map(existingPatient -> mergePatientData(existingPatient, updateData))
                 .doOnNext(patient -> log.info("Paciente actualizado exitosamente: {}", patient.getId()))

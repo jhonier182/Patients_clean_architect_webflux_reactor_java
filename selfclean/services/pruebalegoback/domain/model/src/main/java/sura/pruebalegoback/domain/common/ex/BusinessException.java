@@ -34,13 +34,17 @@ public class BusinessException extends ApplicationException {
     private final Type type;
 
     public BusinessException(String message){
-        super(message);
+        super(message, "BUSINESS_ERROR");
         this.type = null; // Se puede hacer null o crear un constructor adicional
     }
 
     @Override
     public String getCode(){
-        return type != null ? type.name() : "UNKNOWN";
+        if (type != null) {
+            return type.name();
+        }
+        String parentCode = super.getCode();
+        return parentCode != null ? parentCode : "BUSINESS_ERROR";
     }
 
 

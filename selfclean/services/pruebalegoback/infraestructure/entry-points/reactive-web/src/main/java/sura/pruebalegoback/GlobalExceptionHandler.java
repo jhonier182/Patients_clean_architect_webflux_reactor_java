@@ -2,6 +2,7 @@ package sura.pruebalegoback;
 
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -45,16 +46,21 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)
     public Mono<ResponseEntity<ErrorResponse>> handleBusinessException(BusinessException ex) {
-        log.error("Error de negocio: {}", ex.getMessage(), ex);
+        log.error("Error de negocio: {} | Code: {}", ex.getMessage(), ex.getCode(), ex);
+        
+        String message = ex.getMessage() != null ? ex.getMessage() : "Error de negocio";
+        String code = ex.getCode() != null ? ex.getCode() : "BUSINESS_ERROR";
         
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .timestamp(LocalDateTime.now())
                 .status(HttpStatus.BAD_REQUEST.value())
                 .error("Business Error")
-                .message(ex.getMessage())
-                .code(ex.getCode())
+                .message(message)
+                .code(code)
                 .type("BUSINESS_ERROR")
                 .build();
+        
+        log.debug("Respuesta de error construida: message={}, code={}", message, code);
         
         return Mono.just(ResponseEntity.badRequest().body(errorResponse));
     }
@@ -149,6 +155,7 @@ public class GlobalExceptionHandler {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ErrorResponse {
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
         private LocalDateTime timestamp;
         private int status;
         private String error;

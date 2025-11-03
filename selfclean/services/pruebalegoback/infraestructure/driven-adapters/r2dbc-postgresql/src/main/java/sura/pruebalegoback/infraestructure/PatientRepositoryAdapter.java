@@ -2,6 +2,7 @@ package sura.pruebalegoback.infraestructure;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,14 +15,30 @@ import sura.pruebalegoback.domain.patient.gateway.PatientRepository;
 public class PatientRepositoryAdapter implements PatientRepository {
     
     private final PatientReactiveRepository reactiveRepository;
+    private final R2dbcEntityTemplate r2dbcEntityTemplate;
 
     @Override
     public Mono<Patient> save(Patient patient) {
         log.debug("Guardando paciente: {}", patient.getId());
-        return Mono.just(patient)
-            .map(this::toEntity)
-            .flatMap(reactiveRepository::save)
-            .map(this::toDomain)
+        PatientEntity entity = toEntity(patient);
+        
+        // Verificar si el paciente existe en la base de datos
+        return reactiveRepository.findById(patient.getId())
+            .hasElement()
+            .flatMap(exists -> {
+                if (exists) {
+                    // Si existe, actualizar usando el repositorio
+                    log.debug("Paciente existente, actualizando: {}", patient.getId());
+                    return reactiveRepository.save(entity)
+                        .map(this::toDomain);
+                } else {
+                    // Si no existe, insertar usando R2dbcEntityTemplate
+                    log.debug("Paciente nuevo, insertando: {}", patient.getId());
+                    return r2dbcEntityTemplate.insert(PatientEntity.class)
+                        .using(entity)
+                        .map(this::toDomain);
+                }
+            })
             .doOnNext(p -> log.debug("Paciente guardado exitosamente: {}", p.getId()));
     }
 

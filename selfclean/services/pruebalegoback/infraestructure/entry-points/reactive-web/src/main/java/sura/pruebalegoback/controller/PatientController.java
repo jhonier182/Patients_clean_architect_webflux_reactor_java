@@ -18,7 +18,7 @@ import sura.pruebalegoback.usecase.patient.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/patients")
+@RequestMapping("/patients")
 @RequiredArgsConstructor
 public class PatientController {
     

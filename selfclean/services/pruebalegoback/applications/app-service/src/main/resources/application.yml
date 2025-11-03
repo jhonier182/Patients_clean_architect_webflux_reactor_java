@@ -1,6 +1,9 @@
 spring:
   application:
     name: pruebalegoback
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
   r2dbc:
     url: r2dbc:postgresql://localhost:5433/clinica_db
     username: postgres

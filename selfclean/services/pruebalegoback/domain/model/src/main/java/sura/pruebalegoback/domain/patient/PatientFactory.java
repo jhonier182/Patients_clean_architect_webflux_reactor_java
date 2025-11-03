@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 public class PatientFactory {
 
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
-    private static final Pattern PHONE_PATTERN = Pattern.compile("^\\+?[1-9]\\d{1,14}$");
 
     public static Mono<Patient> createPatient(String id, String firstName, String lastName,
                                               String documentNumber, String documentType,
@@ -77,10 +76,26 @@ public class PatientFactory {
                 .switchIfEmpty(Mono.error(new BusinessException("Email inválido")));
     }
 
-    private static Mono<String> validatePhone(String phone) {
-        return Mono.justOrEmpty(phone)
-                .filter(p -> p == null || PHONE_PATTERN.matcher(p).matches())
-                .switchIfEmpty(Mono.error(new BusinessException("Teléfono inválido")));
+    public static Mono<String> validatePhone(String phone) {
+        // Si es null o vacío, se acepta (campo opcional)
+        if (phone == null || phone.trim().isEmpty()) {
+            return Mono.just(null);
+        }
+        
+        // Normalizar: eliminar espacios, guiones, paréntesis para validación básica
+        String normalized = phone.replaceAll("[\\s\\-\\(\\)]", "");
+        
+        // Validar que después de normalizar tenga solo dígitos y opcionalmente + al inicio
+        // Acepta entre 7 y 15 dígitos (rango razonable para números telefónicos)
+        if (normalized.matches("^[+]?[0-9]{7,15}$")) {
+            return Mono.just(phone); // Devolver el original con su formato
+        }
+        
+        // Si no cumple con el formato, lanzar error con mensaje descriptivo
+        return Mono.error(new BusinessException(
+            "Teléfono inválido. El formato debe contener entre 7 y 15 dígitos. " +
+            "Se aceptan formatos con espacios, guiones y paréntesis. " +
+            "Ejemplos válidos: +57 300 1234567, 6012345678, (57) 1234567, 3001234567"));
     }
 
     private static Mono<java.time.LocalDate> validateBirthDate(String birthDate) {
