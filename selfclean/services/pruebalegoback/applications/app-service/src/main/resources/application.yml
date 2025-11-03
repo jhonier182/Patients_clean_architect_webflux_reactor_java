@@ -2,7 +2,7 @@ spring:
   application:
     name: pruebalegoback
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/clinica_db
+    url: r2dbc:postgresql://localhost:5433/clinica_db
     username: postgres
     password: 1234
     pool:
