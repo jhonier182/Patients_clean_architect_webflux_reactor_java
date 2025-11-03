@@ -55,7 +55,7 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public Mono<ResponseEntity<PatientResponse>> getPatientById(@PathVariable String id) {
+    public Mono<ResponseEntity<PatientResponse>> getPatientById(@PathVariable("id") String id) {
         log.info("Buscando paciente con ID: {}", id);
         
         return getPatientByIdUseCase.execute(id)
@@ -85,7 +85,7 @@ public class PatientController {
     }
 
     @GetMapping("/city/{city}")
-    public Flux<PatientResponse> getPatientsByCity(@PathVariable String city) {
+    public Flux<PatientResponse> getPatientsByCity(@PathVariable("city") String city) {
         log.info("Buscando pacientes de ciudad: {}", city);
         
         return queryPatientsUseCase.getPatientByCity(city)
@@ -94,7 +94,7 @@ public class PatientController {
     }
 
     @GetMapping("/document/{documentNumber}")
-    public Flux<PatientResponse> getPatientsByDocumentNumber(@PathVariable String documentNumber) {
+    public Flux<PatientResponse> getPatientsByDocumentNumber(@PathVariable("documentNumber") String documentNumber) {
         log.info("Buscando paciente por documento: {}", documentNumber);
         
         return queryPatientsUseCase.getPatientsByDocumentNumber(documentNumber)
@@ -125,7 +125,7 @@ public class PatientController {
 
     @PutMapping("/{id}")
     public Mono<ResponseEntity<PatientResponse>> updatePatient(
-            @PathVariable String id, 
+            @PathVariable("id") String id, 
             @Valid @RequestBody PatientUpdateRequest request) {
         log.info("Actualizando paciente con ID: {}", id);
         
@@ -147,7 +147,7 @@ public class PatientController {
     }
 
     @DeleteMapping("/{id}")
-    public Mono<ResponseEntity<Void>> deletePatient(@PathVariable String id) {
+    public Mono<ResponseEntity<Void>> deletePatient(@PathVariable("id") String id) {
         log.info("Eliminando paciente con ID: {}", id);
         
         return deletePatientUseCase.deletePatient(id)
@@ -157,7 +157,7 @@ public class PatientController {
     }
 
     @PutMapping("/{id}/deactivate")
-    public Mono<ResponseEntity<PatientResponse>> deactivatePatient(@PathVariable String id) {
+    public Mono<ResponseEntity<PatientResponse>> deactivatePatient(@PathVariable("id") String id) {
         log.info("Desactivando paciente con ID: {}", id);
         
         return deletePatientUseCase.deactivatePatient(id)
@@ -168,7 +168,7 @@ public class PatientController {
     }
 
     @PutMapping("/{id}/reactivate")
-    public Mono<ResponseEntity<PatientResponse>> reactivatePatient(@PathVariable String id) {
+    public Mono<ResponseEntity<PatientResponse>> reactivatePatient(@PathVariable("id") String id) {
         log.info("Reactivando paciente con ID: {}", id);
         
         return deletePatientUseCase.reactivatePatient(id)
@@ -179,7 +179,7 @@ public class PatientController {
     }
 
     @GetMapping("/{id}/weather")
-    public Mono<ResponseEntity<GetPatientWeatherUseCase.PatientWithWeather>> getPatientWeather(@PathVariable String id) {
+    public Mono<ResponseEntity<GetPatientWeatherUseCase.PatientWithWeather>> getPatientWeather(@PathVariable("id") String id) {
         log.info("Obteniendo datos de clima para paciente con ID: {}", id);
         
         return getPatientWeatherUseCase.execute(id)

@@ -41,6 +41,33 @@
       <module name="pruebalegoback.applications-app-service" options="-parameters" />
       <module name="pruebalegoback.applications-app-service.main" options="-parameters" />
       <module name="pruebalegoback.applications-app-service.test" options="-parameters" />
+      <module name="pruebalegoback.domain-model" options="-parameters" />
+      <module name="pruebalegoback.domain-model.main" options="-parameters" />
+      <module name="pruebalegoback.domain-model.test" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase.main" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase.test" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.main" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.test" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer.main" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer.test" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web.main" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web.test" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events.main" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events.test" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter.main" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter.test" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app.main" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app.test" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance.main" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance.test" options="-parameters" />
     </option>
   </component>
 </project>
