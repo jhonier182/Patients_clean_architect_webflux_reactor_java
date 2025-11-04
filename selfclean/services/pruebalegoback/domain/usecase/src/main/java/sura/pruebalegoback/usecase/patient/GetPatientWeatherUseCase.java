@@ -38,11 +38,14 @@ public class GetPatientWeatherUseCase {
     }
 
     private Mono<WeatherInfo> getWeatherWithFallback(String city, String state) {
+        // El WeatherGateway ya maneja todos los errores y devuelve datos por defecto,
+        // por lo que este método solo necesita pasar el resultado directamente
         return weatherGateway.getWeatherByLocation(city, state)
                 .doOnNext(weather -> log.debug("Clima obtenido para {}, {}: {}",
                         city, state, weather.condition()))
+                // Fallback adicional por si acaso el gateway no maneja algún error
                 .onErrorResume(error -> {
-                    log.warn("Error al obtener clima para {}, {}: {}. Usando datos por defecto",
+                    log.warn("Error inesperado al obtener clima para {}, {}: {}. Usando datos por defecto",
                             city, state, error.getMessage());
                     return Mono.just(createDefaultWeather(city, state));
                 })
@@ -57,7 +60,7 @@ public class GetPatientWeatherUseCase {
                 "No disponible",
                 "N/A",
                 "N/A",
-                "Información no disponible"
+                "Información no disponible (Error)"
         );
     }
 

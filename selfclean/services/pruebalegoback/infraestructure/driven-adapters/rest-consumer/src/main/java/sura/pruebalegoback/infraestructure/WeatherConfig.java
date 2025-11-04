@@ -49,6 +49,8 @@ public class WeatherConfig {
         return builder
                 .baseUrl(baseUrl)
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .defaultHeader("User-Agent", "(PruebaLegoBack, juan.perez@example.com)")
+                .defaultHeader("Accept", "application/json")
                 .filter(logRequest())
                 .filter(logResponse())
                 .build();
@@ -58,6 +60,8 @@ public class WeatherConfig {
     public ObjectMapper jacksonObjectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        // Ignorar propiedades desconocidas para evitar errores con campos como "@context"
+        mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
     }
 
