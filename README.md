@@ -1,5 +1,3 @@
-# Service Base
-
 # Sistema de Gestión de Pacientes - LEGO Backend
 
 ## 📋 Descripción del Proyecto
