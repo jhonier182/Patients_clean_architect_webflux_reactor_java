@@ -2,7 +2,7 @@
 
 ## 📋 Descripción del Proyecto
 
-Este proyecto es un sistema de gestión de pacientes desarrollado con **Spring Boot WebFlux** siguiendo los principios de **Arquitectura Hexagonal (o Clean Architecture)** (patrón LEGO). El sistema proporciona una API REST reactiva completa para la gestión de pacientes de una clínica, incluyendo funcionalidades avanzadas como integración con servicios externos, exportación de datos y mensajería asíncrona.
+Este proyecto es un sistema de gestión de pacientes desarrollado con **Spring Boot WebFlux** siguiendo los principios de **Arquitectura Hexagonal (o Clean Architecture)**. El sistema proporciona una API REST reactiva completa para la gestión de pacientes de una clínica, incluyendo funcionalidades avanzadas como integración con servicios externos, exportación de datos y mensajería asíncrona.
 
 ### Características Principales
 
@@ -18,7 +18,7 @@ Este proyecto es un sistema de gestión de pacientes desarrollado con **Spring B
 
 ## 🏗️ Arquitectura del Proyecto
 
-El proyecto sigue el patrón **Arquitectura Hexagonal (Clean Architecture, LEGO)** con las siguientes capas:
+El proyecto sigue el patrón **Arquitectura Hexagonal (Clean Architecture)** con las siguientes capas:
 
 ### 1. Capa de Dominio (`domain/`)
 
@@ -439,7 +439,7 @@ pruebalegoback/
 
 ## 👥 Autor
 
-Desarrollado siguiendo los estándares y patrones de **LEGO** para arquitectura de software.
+Desarrollado siguiendo los estándares y patrones de arquitectura limpia para software.
 
 ---
 
