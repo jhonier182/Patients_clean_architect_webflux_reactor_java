@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: pruebalegoback-postgres
+    environment:
+      POSTGRES_DB: clinica_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infraestructure/driven-adapters/r2dbc-postgresql/create_table.sql:/docker-entrypoint-initdb.d/01-init.sql
+    command: postgres -c ssl=off -c listen_addresses=*
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - legoback-network
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: pruebalegoback-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"   # Puerto AMQP
+      - "15672:15672" # Puerto de gestión web
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - legoback-network
+
+volumes:
+  postgres_data:
+
+networks:
+  legoback-network:
+    driver: bridge
+

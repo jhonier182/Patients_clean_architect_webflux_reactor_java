@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':domain-model')
+    implementation project(':domain-usecase')
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/lego.iml" filepath="$PROJECT_DIR$/.idea/lego.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applications/app-service/pruebalegoback.applications-app-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/applications/app-service/pruebalegoback.applications-app-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/pruebalegoback.domain-model.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/pruebalegoback.domain-model.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/pruebalegoback.domain-usecase.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/pruebalegoback.domain-usecase.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/r2dbc-postgresql/pruebalegoback.driven-adapters-r2dbc-postgresql.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/r2dbc-postgresql/pruebalegoback.driven-adapters-r2dbc-postgresql.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/rest-consumer/pruebalegoback.driven-adapters-rest-consumer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/driven-adapters/rest-consumer/pruebalegoback.driven-adapters-rest-consumer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/reactive-web/pruebalegoback.entry-points-reactive-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/reactive-web/pruebalegoback.entry-points-reactive-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/subs-events/pruebalegoback.entry-points-subs-events.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/entry-points/subs-events/pruebalegoback.entry-points-subs-events.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infraestructure/helpers/excel-exporter/pruebalegoback.helpers-excel-exporter.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infraestructure/helpers/excel-exporter/pruebalegoback.helpers-excel-exporter.main.iml" />
+    </modules>
+  </component>
+</project>

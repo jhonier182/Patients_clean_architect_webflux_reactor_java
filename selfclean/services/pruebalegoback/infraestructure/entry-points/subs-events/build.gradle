@@ -1,0 +1,22 @@
+configurations.all {
+    resolutionStrategy {
+        force "io.projectreactor.rabbitmq:reactor-rabbitmq:${reactorRabbitmqVersion}"
+    }
+}
+
+dependencies {
+    implementation project(':domain-model')
+    implementation project(':domain-usecase')
+    // Especificar reactor-rabbitmq primero para que async-commons pueda resolverlo
+    implementation "io.projectreactor.rabbitmq:reactor-rabbitmq:${reactorRabbitmqVersion}"
+    implementation "org.reactivecommons:async-commons-api:${asyncCommonsVersion}"
+    implementation("org.reactivecommons:async-commons-rabbit-starter:${asyncCommonsVersion}") {
+        exclude group: 'io.projectreactor.rabbitmq', module: 'reactor-rabbitmq'
+    } 
+    implementation("org.springframework:spring-context") 
+    implementation "io.micrometer:micrometer-core:${micrometerVersion}"
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+}
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="pruebalegoback.domain-model.main" />
+        <module name="pruebalegoback.driven-adapters-rest-consumer.main" />
+        <module name="pruebalegoback.entry-points-subs-events.test" />
+        <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.main" />
+        <module name="pruebalegoback.helpers-excel-exporter.test" />
+        <module name="pruebalegoback.helpers-security-app.test" />
+        <module name="pruebalegoback.test-acceptance.main" />
+        <module name="pruebalegoback.domain-usecase.test" />
+        <module name="pruebalegoback.applications-app-service.main" />
+        <module name="pruebalegoback.entry-points-subs-events.main" />
+        <module name="pruebalegoback.applications-app-service.test" />
+        <module name="pruebalegoback.entry-points-reactive-web.test" />
+        <module name="pruebalegoback.helpers-security-app.main" />
+        <module name="pruebalegoback.test-acceptance.test" />
+        <module name="pruebalegoback.domain-usecase.main" />
+        <module name="pruebalegoback.driven-adapters-rest-consumer.test" />
+        <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.test" />
+        <module name="pruebalegoback.helpers-excel-exporter.main" />
+        <module name="pruebalegoback.domain-model.test" />
+        <module name="pruebalegoback.entry-points-reactive-web.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher" target="21" />
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher.main" target="21" />
+      <module name="pruebalegoback.driven-adapters-rabbit-publisher.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="pruebalegoback.applications-app-service" options="-parameters" />
+      <module name="pruebalegoback.applications-app-service.main" options="-parameters" />
+      <module name="pruebalegoback.applications-app-service.test" options="-parameters" />
+      <module name="pruebalegoback.domain-model" options="-parameters" />
+      <module name="pruebalegoback.domain-model.main" options="-parameters" />
+      <module name="pruebalegoback.domain-model.test" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase.main" options="-parameters" />
+      <module name="pruebalegoback.domain-usecase.test" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.main" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-r2dbc-postgresql.test" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer.main" options="-parameters" />
+      <module name="pruebalegoback.driven-adapters-rest-consumer.test" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web.main" options="-parameters" />
+      <module name="pruebalegoback.entry-points-reactive-web.test" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events.main" options="-parameters" />
+      <module name="pruebalegoback.entry-points-subs-events.test" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter.main" options="-parameters" />
+      <module name="pruebalegoback.helpers-excel-exporter.test" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app.main" options="-parameters" />
+      <module name="pruebalegoback.helpers-security-app.test" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance.main" options="-parameters" />
+      <module name="pruebalegoback.test-acceptance.test" options="-parameters" />
+    </option>
+  </component>
+</project>
