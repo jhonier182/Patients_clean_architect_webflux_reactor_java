@@ -1,4 +1,4 @@
-# Sistema de Gestión de Pacientes - LEGO Backend
+# Sistema de Gestión de Pacientes - Backend 
 
 ## 📋 Descripción del Proyecto
 
